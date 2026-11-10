@@ -341,11 +341,14 @@
             align-items: center;
             gap: 12px;
             z-index: 1001;
+            flex-shrink: 0; /* Prevents logo from squishing on mobile */
         }
 
         .logo-svg {
             width: 45px;
             height: 45px;
+            flex-shrink: 0; /* Prevents squishing */
+            transition: var(--transition);
         }
 
         .logo-text {
@@ -1814,6 +1817,25 @@
             .welcome-modal { padding: 30px 20px; }
             .welcome-modal h2 { font-size: 1.5rem; }
             .founder-list { grid-template-columns: 1fr; }
+
+            /* Mobile Logo Fix */
+            .logo-svg {
+                width: 35px;
+                height: 35px;
+            }
+            .logo-title {
+                font-size: 1.05rem;
+            }
+            .logo-subtitle {
+                font-size: 0.6rem;
+                letter-spacing: 0.5px;
+            }
+            .nav-container {
+                height: 75px;
+            }
+            .navbar.scrolled .nav-container {
+                height: 65px;
+            }
         }
     </style>
 </head>
@@ -2329,11 +2351,11 @@
                 <!-- Staff 2 -->
                 <div class="team-card reveal" style="transition-delay: 0.1s;">
                     <div class="team-img">
-                        <img src="usenurse.jpeg" alt="SANUSI ABDULLAH" onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <img src="male.jpeg" alt="ADEWOYIN EMMANUEL OLUWATOBI" onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
                         <span class="team-placeholder-badge">General Practitioner</span>
                     </div>
                     <div class="team-info">
-                        <h3>SANUSI ABDULLAH</h3>
+                        <h3>ADEWOYIN EMMANUEL OLUWATOBI</h3>
                         <p>General Practitioner</p>
                         <p class="team-desc">Providing comprehensive medical consultations and primary care for all ages.</p>
                     </div>
@@ -2342,11 +2364,11 @@
                 <!-- Staff 3 -->
                 <div class="team-card reveal" style="transition-delay: 0.2s;">
                     <div class="team-img">
-                        <img src="head NURSE.png" alt="FATIMOH YUSUF" onerror="this.src='https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <img src="female.jpeg" alt="LAWAL IKEOLUWA DORCAS" onerror="this.src='https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
                         <span class="team-placeholder-badge">Head Nurse / Midwife</span>
                     </div>
                     <div class="team-info">
-                        <h3>FATIMOH YUSUF</h3>
+                        <h3>LAWAL IKEOLUWA DORCAS</h3>
                         <p>Head Nurse / Midwife</p>
                         <p class="team-desc">Leading our nursing team to ensure the highest standards of patient care and maternal support.</p>
                     </div>
@@ -2542,7 +2564,8 @@
             </div>
 
             <div class="faq-container">
-                <div class="faq-item reveal active">
+                <!-- Removed 'reveal' class from faq items to prevent JS calculation issues -->
+                <div class="faq-item active">
                     <div class="faq-header">
                         <h3>Where is Omicare Multispeciality Hospital located?</h3>
                         <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
@@ -2554,7 +2577,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item reveal" style="transition-delay: 0.1s;">
+                <div class="faq-item">
                     <div class="faq-header">
                         <h3>How can I contact the hospital?</h3>
                         <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
@@ -2566,7 +2589,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item reveal" style="transition-delay: 0.2s;">
+                <div class="faq-item">
                     <div class="faq-header">
                         <h3>What medical services are available?</h3>
                         <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
@@ -2578,7 +2601,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item reveal" style="transition-delay: 0.3s;">
+                <div class="faq-item">
                     <div class="faq-header">
                         <h3>How can I request an appointment?</h3>
                         <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
@@ -2590,7 +2613,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item reveal" style="transition-delay: 0.4s;">
+                <div class="faq-item">
                     <div class="faq-header">
                         <h3>Can I contact the hospital through WhatsApp?</h3>
                         <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
@@ -2718,7 +2741,6 @@
             const closeModalBtn = document.getElementById('closeModal');
             const modalCta = document.getElementById('modalCta');
 
-            // Check if welcome modal has been shown using sessionStorage
             let hasSeenWelcome = false;
             try {
                 hasSeenWelcome = sessionStorage.getItem('omicareWelcomeShown');
@@ -2733,7 +2755,7 @@
                     try {
                         sessionStorage.setItem('omicareWelcomeShown', 'true');
                     } catch (e) {}
-                }, 1500); // Show after 1.5 seconds
+                }, 1500); 
             }
 
             const closeModal = () => {
@@ -2743,14 +2765,12 @@
 
             closeModalBtn.addEventListener('click', closeModal);
             
-            // Close modal if user clicks outside the modal content
             welcomeModal.addEventListener('click', (e) => {
                 if (e.target === welcomeModal) {
                     closeModal();
                 }
             });
 
-            // Close modal when CTA is clicked and smooth scroll
             modalCta.addEventListener('click', () => {
                 closeModal();
             });
@@ -2761,7 +2781,6 @@
             const navLinks = document.getElementById('navLinks');
             const navItems = document.querySelectorAll('.nav-link');
 
-            // Sticky Navbar
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
@@ -2769,7 +2788,6 @@
                     navbar.classList.remove('scrolled');
                 }
                 
-                // Back to top button visibility
                 const backToTop = document.getElementById('backToTop');
                 if (window.scrollY > 500) {
                     backToTop.classList.add('show');
@@ -2778,14 +2796,12 @@
                 }
             });
 
-            // Mobile Menu Toggle
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenuBtn.classList.toggle('active');
                 navLinks.classList.toggle('active');
                 document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
             });
 
-            // Close mobile menu on link click
             navItems.forEach(item => {
                 item.addEventListener('click', () => {
                     mobileMenuBtn.classList.remove('active');
@@ -2794,13 +2810,11 @@
                 });
             });
 
-            // Active Nav Link on Scroll
             const sections = document.querySelectorAll('section[id]');
             window.addEventListener('scroll', () => {
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
                     if (scrollY >= (sectionTop - 200)) {
                         current = section.getAttribute('id');
                     }
@@ -2831,55 +2845,38 @@
 
             revealElements.forEach(el => revealObserver.observe(el));
 
-            // --- FAQ Accordion ---
+            // --- FAQ Accordion (Robust Version) ---
             const faqItems = document.querySelectorAll('.faq-item');
 
-            const syncFaqState = (item) => {
+            faqItems.forEach(item => {
+                const header = item.querySelector('.faq-header');
                 const body = item.querySelector('.faq-body');
-                if (!body) return;
+
+                // Set initial state
                 if (item.classList.contains('active')) {
                     body.style.maxHeight = body.scrollHeight + 'px';
                 } else {
-                    body.style.maxHeight = null;
+                    body.style.maxHeight = '0px';
                 }
-            };
 
-            faqItems.forEach((item) => {
-                const header = item.querySelector('.faq-header');
-                if (header) {
-                    header.setAttribute('tabindex', '0');
-                    header.addEventListener('click', () => {
-                        faqItems.forEach(otherItem => {
-                            if (otherItem !== item && otherItem.classList.contains('active')) {
-                                otherItem.classList.remove('active');
-                                syncFaqState(otherItem);
-                            }
-                        });
-
-                        item.classList.toggle('active');
-                        syncFaqState(item);
-                    });
-
-                    header.addEventListener('keydown', (event) => {
-                        if (event.key === 'Enter' || event.key === ' ') {
-                            event.preventDefault();
-                            header.click();
+                header.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-body').style.maxHeight = '0px';
                         }
                     });
-                }
-                syncFaqState(item);
-            });
 
-            requestAnimationFrame(() => {
-                faqItems.forEach(item => syncFaqState(item));
-            });
-
-            document.querySelectorAll('img').forEach((img) => {
-                if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
-                if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
-                if (img.closest('.hero-image-wrapper') && !img.hasAttribute('fetchpriority')) {
-                    img.setAttribute('fetchpriority', 'high');
-                }
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    
+                    if (item.classList.contains('active')) {
+                        body.style.maxHeight = body.scrollHeight + 'px';
+                    } else {
+                        body.style.maxHeight = '0px';
+                    }
+                });
             });
 
             // --- Appointment Form & WhatsApp Integration ---
@@ -2890,7 +2887,6 @@
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                // Get values
                 const name = document.getElementById('fullName').value.trim();
                 const phone = document.getElementById('phone').value.trim();
                 const email = document.getElementById('email').value.trim();
@@ -2899,13 +2895,11 @@
                 const time = document.getElementById('time').value;
                 const message = document.getElementById('message').value.trim();
 
-                // Basic Validation
                 if (!name || !phone || !service || !date || !time) {
                     showFormMessage('Please fill in all required fields.', 'error');
                     return;
                 }
 
-                // Construct WhatsApp Message
                 let waMessage = `*NEW APPOINTMENT ENQUIRY*\n\n`;
                 waMessage += `*Hospital:* Omicare Multispeciality Hospital\n\n`;
                 waMessage += `*Patient Name:* ${name}\n`;
@@ -2917,18 +2911,15 @@
                 if (message) waMessage += `*Additional Message:* ${message}\n`;
                 waMessage += `\n_Please contact the patient regarding this appointment enquiry._`;
 
-                // Encode message
                 const encodedMessage = encodeURIComponent(waMessage);
                 const whatsappUrl = `https://wa.me/${hospitalWhatsApp}?text=${encodedMessage}`;
 
-                // Open WhatsApp
                 const newWindow = window.open(whatsappUrl, '_blank');
 
                 if (newWindow) {
                     showFormMessage('Redirecting to WhatsApp... Please press SEND in the chat to submit your enquiry.', 'success');
                     form.reset();
                 } else {
-                    // Fallback if popup is blocked
                     showFormMessage('Popup blocked. Please click the link below to send your enquiry via WhatsApp.', 'error');
                     const fallbackLink = document.createElement('a');
                     fallbackLink.href = whatsappUrl;
@@ -2946,7 +2937,6 @@
                 formMessage.textContent = msg;
                 formMessage.className = `form-message ${type}`;
                 
-                // Clear message after 8 seconds if it's a success message
                 if (type === 'success') {
                     setTimeout(() => {
                         formMessage.style.display = 'none';
