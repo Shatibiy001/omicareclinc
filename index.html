@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omicare Multispeciality Hospital | Your Health, Our Priority</title>
+    <meta name="description" content="Omicare Multispeciality Hospital in Okinni, Osogbo, Osun State, Nigeria. Providing compassionate, patient-centred healthcare including Maternity Care, General Health Care, Ambulance Services, Antenatal Care, Fertility Care, and more.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Omicare Multispeciality Hospital | Your Health, Our Priority">
+    <meta property="og:description" content="Compassionate Care. Professional Excellence. Better Health. Located in Okinni, Osogbo, Osun State.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "Omicare Multispeciality Hospital",
+      "url": "https://www.omicarehospital.com",
+      "telephone": "+2348027355688",
+      "email": "omicarespecialisthosp@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "23, Isale Alfa Community, Osogbo - Ilobu Road",
+        "addressLocality": "Okinni, Osogbo",
+        "addressRegion": "Osun State",
+        "addressCountry": "NG"
+      },
+      "description": "Compassionate, patient-centred healthcare in Okinni, Osogbo, Osun State.",
+      "medicalSpecialty": ["Obstetrics", "Gynaecology", "Surgery", "Diagnostic Imaging", "Clinical Laboratory Science", "Counseling", "Emergency Medicine"]
+    }
+    </script>
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-blue: #064B91;
+            --primary-green: #078B43;
+            --blue-hover: #043a70;
+            --green-hover: #066d34;
+            --white: #FFFFFF;
+            --light-bg: #F4F8FC;
+            --dark-navy: #102A43;
+            --text-main: #334155;
+            --text-muted: #64748B;
+            --soft-grey: #F5F7FA;
+            --border-color: #E2E8F0;
+            
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            
+            --transition: all 0.3s ease;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            background: linear-gradient(135deg, rgba(6, 75, 145, 0.08), rgba(7, 139, 67, 0.08));
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* =========================================
+           WELCOME MODAL
+           ========================================= */
+        .welcome-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(16, 42, 67, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .welcome-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .welcome-modal {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            transform: translateY(30px) scale(0.95);
+            transition: var(--transition);
+            box-shadow: var(--shadow-xl);
+            border-top: 6px solid var(--primary-green);
+        }
+
+        .welcome-modal-overlay.active .welcome-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .welcome-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--light-bg);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .welcome-modal-close:hover {
+            background: #FEE2E2;
+            color: #991B1B;
+            transform: rotate(90deg);
+        }
+
+        .welcome-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(6, 75, 145, 0.1) 0%, rgba(7, 139, 67, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-blue);
+        }
+
+        .welcome-modal h2 {
+            font-size: 1.8rem;
+            color: var(--dark-navy);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .welcome-modal p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .welcome-modal .btn {
+            width: 100%;
+        }
+
+        /* =========================================
+           TYPOGRAPHY & UTILITIES
+           ========================================= */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-subtitle {
+            color: var(--primary-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.875rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-navy);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+        }
+
+        .text-center { text-align: center; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(6, 75, 145, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 75, 145, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(7, 139, 67, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(7, 139, 67, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled .nav-container {
+            height: 70px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1001;
+        }
+
+        .logo-svg {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-navy);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-navy);
+            margin-bottom: 5px;
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .mobile-menu-btn span:last-child {
+            margin-bottom: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            position: relative;
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #F4F8FC 0%, #E6F0F9 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(7, 139, 67, 0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 75, 145, 0.08) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            max-width: 90%;
+        }
+
+        .hero-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            aspect-ratio: 4/5;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(16, 42, 67, 0.4) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .hero-badge-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(7, 139, 67, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+        }
+
+        .hero-badge-text h4 {
+            font-size: 1rem;
+            color: var(--dark-navy);
+            margin-bottom: 2px;
+        }
+
+        .hero-badge-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* =========================================
+           TRUST SECTION
+           ========================================= */
+        .trust-section {
+            background-color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            z-index: 10;
+            margin-top: -50px;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .trust-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary-green);
+        }
+
+        .trust-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .trust-card:hover .trust-icon {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .trust-card h3 {
+            font-size: 1.25rem;
+            color: var(--dark-navy);
+            margin-bottom: 15px;
+        }
+
+        .trust-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           ABOUT SECTION
+           ========================================= */
+        .about-section {
+            background-color: var(--light-bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .mv-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .mv-card.vision {
+            border-left-color: var(--primary-green);
+        }
+
+        .mv-card h3 {
+            font-size: 1.1rem;
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mv-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        .values-list {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .value-tag {
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* =========================================
+           FOUNDER SECTION
+           ========================================= */
+        .founder-section {
+            background-color: var(--white);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .founder-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .founder-image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .founder-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: var(--white);
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+        }
+
+        .founder-content h2 {
+            font-size: 2.2rem;
+            color: var(--dark-navy);
+            margin-bottom: 5px;
+        }
+
+        .founder-title {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .founder-bio {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            font-style: italic;
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 15px;
+        }
+
+        .founder-list-section {
+            margin-bottom: 25px;
+        }
+
+        .founder-list-section h4 {
+            font-size: 1.1rem;
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .founder-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .founder-list li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .founder-list li::before {
+            content: '•';
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .founder-meta {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .founder-meta span {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* =========================================
+           SERVICES SECTION
+           ========================================= */
+        .services-section {
+            background-color: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-green);
+        }
+
+        .service-img-wrapper {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .service-icon {
+            position: absolute;
+            bottom: -25px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .service-content {
+            padding: 35px 25px 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-content h3 {
+            font-size: 1.25rem;
+            color: var(--dark-navy);
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--primary-green);
+            gap: 8px;
+        }
+
+        /* =========================================
+           WHY CHOOSE US
+           ========================================= */
+        .why-section {
+            background-color: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .why-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+        }
+
+        .why-content h3 {
+            font-size: 1.1rem;
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+        }
+
+        .why-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* =========================================
+           TEAM SECTION
+           ========================================= */
+        .team-section {
+            background-color: var(--light-bg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            background: var(--white);
+            border: 1px solid var(--border-color);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .team-img {
+            height: 280px;
+            position: relative;
+        }
+
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-placeholder-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            backdrop-filter: blur(4px);
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 1.1rem;
+            color: var(--dark-navy);
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .team-info .team-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           OUR PROMISE
+           ========================================= */
+        .promise-section {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promise-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .promise-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .promise-section .section-title {
+            color: var(--white);
+        }
+
+        .promise-section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .promise-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* =========================================
+           APPOINTMENT SECTION
+           ========================================= */
+        .appointment-section {
+            background-color: var(--white);
+        }
+
+        .appointment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .appointment-info h2 {
+            font-size: 2.5rem;
+            color: var(--dark-navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .appointment-info p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-method-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-method-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cm-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+        }
+
+        .cm-text h4 {
+            font-size: 1rem;
+            color: var(--dark-navy);
+            margin-bottom: 2px;
+        }
+
+        .cm-text p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .appointment-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: var(--transition);
+            background-color: var(--soft-grey);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(6, 75, 145, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 18px;
+            padding-right: 45px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            margin-top: 10px;
+            padding: 16px;
+            font-size: 1.1rem;
+        }
+
+        .form-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            display: none;
+            text-align: center;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #A7F3D0;
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: #FEE2E2;
+            color: #991B1B;
+            border: 1px solid #FECACA;
+        }
+
+        /* =========================================
+           CONTACT SECTION
+           ========================================= */
+        .contact-section {
+            background-color: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover .contact-card-icon {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-card a {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-green);
+        }
+
+        .map-container {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 400px;
+            background: #e5e3df;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .map-placeholder svg {
+            width: 60px;
+            height: 60px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .map-placeholder h3 {
+            color: var(--dark-navy);
+            margin-bottom: 10px;
+        }
+
+        .map-placeholder p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* =========================================
+           FAQ SECTION
+           ========================================= */
+        .faq-section {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            overflow: hidden;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        .faq-item.active {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: var(--light-bg);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-header {
+            background: var(--soft-grey);
+        }
+
+        .faq-header h3 {
+            font-size: 1.1rem;
+            color: var(--dark-navy);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .faq-item.active .faq-header h3 {
+            color: var(--primary-blue);
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .faq-content {
+            padding: 20px 25px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           FINAL CTA
+           ========================================= */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #043a70 100%);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(7, 139, 67, 0.4) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn-primary {
+            background-color: var(--primary-green);
+            box-shadow: 0 4px 14px rgba(7, 139, 67, 0.4);
+        }
+
+        .cta-buttons .btn-primary:hover {
+            background-color: var(--green-hover);
+        }
+
+        .cta-buttons .btn-outline {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .cta-buttons .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        .footer {
+            background-color: var(--dark-navy);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand .logo-title {
+            color: var(--white);
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-green);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-green);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-item svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           FLOATING ELEMENTS
+           ========================================= */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            z-index: 998;
+            cursor: pointer;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--blue-hover);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 1024px) {
+            .hero-content { gap: 40px; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .founder-grid { grid-template-columns: 1fr; }
+            .founder-image-wrapper { max-width: 400px; margin: 0 auto; }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 30px; }
+            .hero-location { justify-content: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-badge { left: 50%; transform: translateX(-50%); bottom: -20px; width: max-content; }
+            .hero-image-wrapper { max-width: 500px; margin: 0 auto; aspect-ratio: 1; }
+            
+            .trust-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-image { order: -1; max-width: 500px; margin: 0 auto; }
+            
+            .why-grid { grid-template-columns: 1fr 1fr; }
+            
+            .appointment-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.4s ease;
+                z-index: 1000;
+                overflow-y: auto;
+                padding: 40px 0;
+            }
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; }
+            .nav-actions .btn { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 70px 0; }
+            .section-title { font-size: 2rem; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .mission-vision { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .final-cta h2 { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .back-to-top { right: 30px; bottom: 100px; }
+            .appointment-form { padding: 25px; }
+            .welcome-modal { padding: 30px 20px; }
+            .welcome-modal h2 { font-size: 1.5rem; }
+            .founder-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WELCOME MODAL -->
+    <div class="welcome-modal-overlay" id="welcomeModal">
+        <div class="welcome-modal">
+            <button class="welcome-modal-close" id="closeModal" aria-label="Close welcome message">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="welcome-icon-wrapper">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <h2>Welcome to Omicare</h2>
+            <p>Your health and wellbeing are our top priority. Experience compassionate, patient-centred healthcare with our team of dedicated professionals. We are here for you.</p>
+            <a href="#appointment" class="btn btn-primary" id="modalCta">Book an Appointment</a>
+        </div>
+    </div>
+
+    <!-- SVG ICON DEFINITIONS -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-heart-pulse" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+            <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>
+        </symbol>
+        <symbol id="icon-heart" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+        </symbol>
+        <symbol id="icon-eye" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+        </symbol>
+        <symbol id="icon-check-circle" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+        </symbol>
+        <symbol id="icon-users" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </symbol>
+        <symbol id="icon-activity" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </symbol>
+        <symbol id="icon-thermometer" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+        </symbol>
+        <symbol id="icon-microscope" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+        </symbol>
+        <symbol id="icon-scan" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/>
+        </symbol>
+        <symbol id="icon-message-circle" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+        </symbol>
+        <symbol id="icon-map-pin" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+        </symbol>
+        <symbol id="icon-phone" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </symbol>
+        <symbol id="icon-mail" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </symbol>
+        <symbol id="icon-chevron-down" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+        </symbol>
+        <symbol id="icon-arrow-up" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </symbol>
+        <symbol id="icon-external-link" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/>
+        </symbol>
+        <symbol id="icon-stethoscope" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+            <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/>
+            <circle cx="20" cy="10" r="2"/>
+        </symbol>
+        <symbol id="icon-ambulance" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 10H6"/><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/><path d="M8 8v4"/><path d="M9 18h6"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>
+        </symbol>
+        <symbol id="icon-baby" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>
+        </symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+        </symbol>
+    </svg>
+
+    <!-- NAVIGATION -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo-container" aria-label="Omicare Hospital Home">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 90 C50 90 10 60 10 35 C10 15 30 10 50 30 C70 10 90 15 90 35 C90 60 50 90 50 90 Z" fill="#064B91" opacity="0.1"/>
+                    <path d="M50 85 C50 85 15 55 15 35 C15 20 30 15 50 35 C70 15 85 20 85 35 C85 55 50 85 50 85 Z" fill="none" stroke="#078B43" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M50 85 C50 85 15 55 15 35 C15 20 30 15 50 35 C70 15 85 20 85 35 C85 55 50 85 50 85 Z" fill="none" stroke="#064B91" stroke-width="3" stroke-linecap="round" stroke-dasharray="100 200"/>
+                    <rect x="42" y="30" width="16" height="40" rx="4" fill="#064B91"/>
+                    <rect x="30" y="42" width="40" height="16" rx="4" fill="#078B43"/>
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-title">OMICARE</span>
+                    <span class="logo-subtitle">Multispeciality Hospital</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#team" class="nav-link">Medical Team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#appointment" class="nav-link btn btn-primary" style="color: white; padding: 10px 20px; margin-left: 10px;">Book Appointment</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#appointment" class="btn btn-primary">Book an Appointment</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text reveal">
+                <div class="hero-location">
+                    <svg width="16" height="16"><use href="#icon-map-pin"></use></svg>
+                    23, Isale Alfa Community, Osogbo - Ilobu Road, Okinni
+                </div>
+                <h1>Your Health,<br>Our Priority.</h1>
+                <h2>Compassionate Care. Professional Excellence. Better Health.</h2>
+                <p>Welcome to Omicare Multispeciality Hospital, where your health and wellbeing remain at the centre of everything we do. We are committed to providing accessible, compassionate and patient-centred healthcare through our range of medical services.</p>
+                <div class="hero-buttons">
+                    <a href="#appointment" class="btn btn-primary">Book an Appointment</a>
+                    <a href="tel:08027355688" class="btn btn-outline">
+                        <svg width="18" height="18"><use href="#icon-phone"></use></svg>
+                        Call Our Hospital
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper reveal" style="transition-delay: 0.2s;">
+                <img src="logo2.jpg" alt="Professional female doctor smiling at Omicare Hospital" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                <div class="hero-badge">
+                    <div class="hero-badge-icon">
+                        <svg width="24" height="24"><use href="#icon-heart-pulse"></use></svg>
+                    </div>
+                    <div class="hero-badge-text">
+                        <h4>Quality Care</h4>
+                        <p>for a Healthier Tomorrow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-card reveal">
+                    <div class="trust-icon">
+                        <svg width="32" height="32"><use href="#icon-heart"></use></svg>
+                    </div>
+                    <h3>Compassionate Care</h3>
+                    <p>We approach every patient interaction with empathy, kindness, and a genuine commitment to your wellbeing.</p>
+                </div>
+                <div class="trust-card reveal" style="transition-delay: 0.1s;">
+                    <div class="trust-icon">
+                        <svg width="32" height="32"><use href="#icon-users"></use></svg>
+                    </div>
+                    <h3>Patient-Centred Attention</h3>
+                    <p>Your needs are at the heart of our practice. We listen carefully and tailor our care to support you individually.</p>
+                </div>
+                <div class="trust-card reveal" style="transition-delay: 0.2s;">
+                    <div class="trust-icon">
+                        <svg width="32" height="32"><use href="#icon-check-circle"></use></svg>
+                    </div>
+                    <h3>Commitment to Quality</h3>
+                    <p>We maintain high standards of professionalism and continuously strive to improve the quality of our healthcare services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Omicare Hospital modern medical facility interior" style="min-height: 500px;">
+                </div>
+                <div class="about-text reveal" style="transition-delay: 0.2s;">
+                    <span class="section-subtitle">About Omicare</span>
+                    <h2>Dedicated to Your Health and Wellbeing.</h2>
+                    <p>At Omicare Multispeciality Hospital, we believe that quality healthcare begins with listening, understanding and caring for every individual. Our approach places patients at the heart of every interaction, with a commitment to respectful attention, professional medical consultation and a supportive healthcare environment.</p>
+                    <p>We are dedicated to serving individuals and families in Okinni, Osogbo, and the wider Osun State community by providing accessible and reliable healthcare services.</p>
+                    
+                    <div class="mission-vision">
+                        <div class="mv-card">
+                            <h3><svg width="20" height="20"><use href="#icon-activity"></use></svg> Our Mission</h3>
+                            <p>To provide accessible, compassionate and patient-centred healthcare, supporting individuals and families through professional medical attention and a commitment to quality service.</p>
+                        </div>
+                        <div class="mv-card vision">
+                            <h3><svg width="20" height="20"><use href="#icon-eye"></use></svg> Our Vision</h3>
+                            <p>To be a trusted healthcare destination recognised for compassionate service, professional medical attention and a lasting commitment to community wellbeing.</p>
+                        </div>
+                    </div>
+
+                    <div class="values-list">
+                        <span class="value-tag">Compassion</span>
+                        <span class="value-tag">Integrity</span>
+                        <span class="value-tag">Professionalism</span>
+                        <span class="value-tag">Respect</span>
+                        <span class="value-tag">Patient-centred care</span>
+                        <span class="value-tag">Continuous improvement</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER SECTION -->
+    <section class="founder-section section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Leadership</span>
+                <h2 class="section-title">Meet Our Founder & CMD.</h2>
+            </div>
+
+            <div class="founder-grid">
+                <div class="founder-image-wrapper reveal">
+                    <img src="Doctor.jpeg" alt="Dr. Ayodeji Omisakin - Chief Medical Director" onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                    <div class="founder-badge">MDCN Registered</div>
+                </div>
+
+                <div class="founder-content reveal" style="transition-delay: 0.2s;">
+                    <h2>Dr. Ayodeji Omisakin</h2>
+                    <span class="founder-title">Obstetrician & Gynaecologist | Chief Medical Director</span>
+                    
+                    <p class="founder-bio">"I am an OBGYN dedicated to empowering women through informed, compassionate care. From puberty to menopause, I support women at every stage of life with expertise and empathy."</p>
+
+                    <div class="founder-list-section">
+                        <h4><svg width="18" height="18"><use href="#icon-heart-pulse"></use></svg> What I Help Patients With</h4>
+                        <ul class="founder-list">
+                            <li>Menstrual health and irregularities</li>
+                            <li>Fertility consultations</li>
+                            <li>Pregnancy care and prenatal advice</li>
+                            <li>Contraceptive counseling</li>
+                            <li>Menopause management</li>
+                        </ul>
+                    </div>
+
+                    <div class="founder-list-section">
+                        <h4><svg width="18" height="18"><use href="#icon-users"></use></svg> My Approach</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px;">I believe every woman deserves a safe space to talk about her body, her concerns, and her future. I provide clear, judgment-free, and personalized care.</p>
+                    </div>
+
+                    <div class="founder-list-section">
+                        <h4><svg width="18" height="18"><use href="#icon-check-circle"></use></svg> Education & Training</h4>
+                        <ul class="founder-list">
+                            <li>MBBS, LAUTECH, Ogbomoso, Oyo State</li>
+                            <li>Fellow, West African College of Surgeons (Obstetrics and Gynaecology)</li>
+                            <li>Member, Society of Gynaecology and Obstetrics of Nigeria</li>
+                        </ul>
+                    </div>
+
+                    <div class="founder-meta">
+                        <div><span>Languages:</span> English | Yoruba</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section section-padding" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Our Services</span>
+                <h2 class="section-title">Comprehensive Care for Your Health Needs.</h2>
+                <p class="section-desc">Explore the healthcare services available at Omicare Multispeciality Hospital. We are committed to providing attentive medical care and helping patients access the services relevant to their needs.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrapper">
+                        <img src="anitinatal.jpg" alt="Antenatal Care at Omicare" onerror="this.src='https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-heart"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Antenatal Care</h3>
+                        <p>Supporting expectant mothers through attentive pregnancy-related consultations and maternal healthcare guidance, with a focus on wellbeing throughout pregnancy.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fertility Care Consultation">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-thermometer"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Fertility Care</h3>
+                        <p>Providing a supportive and respectful environment for individuals and couples seeking fertility-related consultation and guidance.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Surgical and Medical Consultation">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-stethoscope"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Surgical & Medical Consultation</h3>
+                        <p>Offering medical consultation to help patients discuss their health concerns, understand available care options and receive appropriate professional guidance.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card reveal" style="transition-delay: 0.3s;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Laboratory Services">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-microscope"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Laboratory Services</h3>
+                        <p>Supporting healthcare assessment through laboratory testing services, helping patients and healthcare professionals obtain relevant diagnostic information.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card reveal" style="transition-delay: 0.4s;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ultrasonography Services">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-scan"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ultrasonography</h3>
+                        <p>Providing ultrasound imaging services to support appropriate medical assessment and diagnostic needs.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card reveal" style="transition-delay: 0.5s;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Medical Counseling">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-message-circle"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Medical Counseling</h3>
+                        <p>Offering an opportunity for patients to discuss healthcare concerns and receive guidance in a respectful and supportive environment.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card reveal">
+                    <div class="service-img-wrapper">
+                        <img src="maternity.jpg" alt="Maternity Care Services" onerror="this.src='https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-baby"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Maternity Care</h3>
+                        <p>Comprehensive support for mothers before, during, and after childbirth, ensuring a safe and welcoming environment for new life.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card reveal" style="transition-delay: 0.1s;">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="General Health Care Services">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-activity"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>General Health Care</h3>
+                        <p>Routine check-ups, preventative care, and treatment for common ailments to keep you and your family healthy year-round.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card reveal" style="transition-delay: 0.2s;">
+                    <div class="service-img-wrapper">
+                        <img src="ambulance.png" alt="Ambulance Services" onerror="this.src='https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <div class="service-icon">
+                            <svg width="28" height="28"><use href="#icon-ambulance"></use></svg>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ambulance Services</h3>
+                        <p>Prompt and reliable emergency transport services to ensure you or your loved ones reach medical attention quickly and safely.</p>
+                        <a href="#appointment" class="service-link">Read More & Enquire <svg width="16" height="16"><use href="#icon-arrow-right"></use></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="why-section section-padding" id="why-us">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Why Choose Omicare</span>
+                <h2 class="section-title">Your Wellbeing Deserves Dedicated Attention.</h2>
+                <p class="section-desc">We are committed to providing a healthcare experience built on trust, respect, and professional excellence.</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <div class="why-icon"><svg width="24" height="24"><use href="#icon-users"></use></svg></div>
+                    <div class="why-content">
+                        <h3>Patient-Focused Approach</h3>
+                        <p>Every decision we make is centred around the needs, comfort, and dignity of our patients.</p>
+                    </div>
+                </div>
+                <div class="why-card reveal" style="transition-delay: 0.1s;">
+                    <div class="why-icon"><svg width="24" height="24"><use href="#icon-heart"></use></svg></div>
+                    <div class="why-content">
+                        <h3>Compassionate Healthcare</h3>
+                        <p>We deliver care with empathy, understanding the emotional and physical aspects of health.</p>
+                    </div>
+                </div>
+                <div class="why-card reveal" style="transition-delay: 0.2s;">
+                    <div class="why-icon"><svg width="24" height="24"><use href="#icon-activity"></use></svg></div>
+                    <div class="why-content">
+                        <h3>Multiple Medical Services</h3>
+                        <p>Access a range of essential healthcare services under one roof for your convenience.</p>
+                    </div>
+                </div>
+                <div class="why-card reveal" style="transition-delay: 0.3s;">
+                    <div class="why-icon"><svg width="24" height="24"><use href="#icon-map-pin"></use></svg></div>
+                    <div class="why-content">
+                        <h3>Convenient Location</h3>
+                        <p>Conveniently situated in Okinni, Osogbo, making quality healthcare accessible to the community.</p>
+                    </div>
+                </div>
+                <div class="why-card reveal" style="transition-delay: 0.4s;">
+                    <div class="why-icon"><svg width="24" height="24"><use href="#icon-message-circle"></use></svg></div>
+                    <div class="why-content">
+                        <h3>Respectful Patient Engagement</h3>
+                        <p>We listen attentively and communicate clearly, ensuring you are informed and respected.</p>
+                    </div>
+                </div>
+                <div class="why-card reveal" style="transition-delay: 0.5s;">
+                    <div class="why-icon"><svg width="24" height="24"><use href="#icon-check-circle"></use></svg></div>
+                    <div class="why-content">
+                        <h3>Commitment to Quality Care</h3>
+                        <p>We adhere to professional standards and continuously seek to improve our services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="team-section section-padding" id="team">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Some of Our Medical Team</span>
+                <h2 class="section-title">People Who Put Your Health First.</h2>
+                <p class="section-desc">Quality healthcare depends on people who approach their responsibilities with professionalism, care and respect.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Staff 1 -->
+                <div class="team-card reveal">
+                    <div class="team-img">
+                        <img src="Nurse1.jpeg" alt="AGBOOLA ISLAMIYAT ABIOLA" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <span class="team-placeholder-badge">Nurse Assistant</span>
+                    </div>
+                    <div class="team-info">
+                        <h3>AGBOOLA ISLAMIYAT ABIOLA</h3>
+                        <p>Nurse Assistant</p>
+                        <p class="team-desc">Dedicated to providing compassionate support and daily care to patients.</p>
+                    </div>
+                </div>
+
+                <!-- Staff 2 -->
+                <div class="team-card reveal" style="transition-delay: 0.1s;">
+                    <div class="team-img">
+                        <img src="usenurse.jpeg" alt="SANUSI ABDULLAH" onerror="this.src='https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <span class="team-placeholder-badge">General Practitioner</span>
+                    </div>
+                    <div class="team-info">
+                        <h3>SANUSI ABDULLAH</h3>
+                        <p>General Practitioner</p>
+                        <p class="team-desc">Providing comprehensive medical consultations and primary care for all ages.</p>
+                    </div>
+                </div>
+
+                <!-- Staff 3 -->
+                <div class="team-card reveal" style="transition-delay: 0.2s;">
+                    <div class="team-img">
+                        <img src="head NURSE.png" alt="FATIMOH YUSUF" onerror="this.src='https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                        <span class="team-placeholder-badge">Head Nurse / Midwife</span>
+                    </div>
+                    <div class="team-info">
+                        <h3>FATIMOH YUSUF</h3>
+                        <p>Head Nurse / Midwife</p>
+                        <p class="team-desc">Leading our nursing team to ensure the highest standards of patient care and maternal support.</p>
+                    </div>
+                </div>
+
+                <!-- Staff 4 -->
+                <div class="team-card reveal" style="transition-delay: 0.3s;">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="ALIYU ISLAMIYAT">
+                        <span class="team-placeholder-badge">Laboratory Scientist</span>
+                    </div>
+                    <div class="team-info">
+                        <h3>ALIYU ISLAMIYAT</h3>
+                        <p>Laboratory Scientist</p>
+                        <p class="team-desc">Ensuring accurate diagnostic testing and reliable laboratory results for our patients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PROMISE -->
+    <section class="promise-section section-padding">
+        <div class="container promise-content reveal">
+            <div class="promise-icon">
+                <svg width="40" height="40"><use href="#icon-heart-pulse"></use></svg>
+            </div>
+            <h2 class="section-title">A Modern Approach to Your Healthcare.</h2>
+            <p>At Omicare Multispeciality Hospital, we understand that navigating healthcare can be a deeply personal experience. We do not just treat conditions; we care for people. Our modern, patient-first approach ensures that every individual feels heard, respected, and supported from the moment they walk through our doors. We believe that clear communication and compassionate care are the foundations of a positive healthcare journey.</p>
+            <p style="font-weight: 600; font-size: 1.1rem; color: var(--primary-green); margin-bottom: 0;">— The Omicare Team</p>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT SECTION -->
+    <section class="appointment-section section-padding" id="appointment">
+        <div class="container">
+            <div class="appointment-grid">
+                <div class="appointment-info reveal">
+                    <span class="section-subtitle">Book an Appointment</span>
+                    <h2>Take the First Step Towards Better Health.</h2>
+                    <p>Request an appointment enquiry with Omicare Multispeciality Hospital. Our team can be contacted through WhatsApp to discuss your preferred service and appointment details.</p>
+                    
+                    <div class="contact-methods">
+                        <a href="tel:08027355688" class="contact-method-item">
+                            <div class="cm-icon"><svg width="24" height="24"><use href="#icon-phone"></use></svg></div>
+                            <div class="cm-text">
+                                <h4>Call Us Directly</h4>
+                                <p>0802 735 5688</p>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/2348027355688" target="_blank" rel="noopener noreferrer" class="contact-method-item">
+                            <div class="cm-icon" style="color: #25D366;"><svg width="24" height="24"><use href="#icon-whatsapp"></use></svg></div>
+                            <div class="cm-text">
+                                <h4>Chat on WhatsApp</h4>
+                                <p>Send us a message</p>
+                            </div>
+                        </a>
+                        <div class="contact-method-item">
+                            <div class="cm-icon"><svg width="24" height="24"><use href="#icon-map-pin"></use></svg></div>
+                            <div class="cm-text">
+                                <h4>Visit Us</h4>
+                                <p>23, Isale Alfa Community, Osogbo - Ilobu Road, Okinni</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appointment-form reveal" style="transition-delay: 0.2s;">
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label class="form-label" for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="080..." required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address (Optional)</label>
+                                <input type="email" id="email" class="form-control" placeholder="you@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="service">Preferred Medical Service *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Antenatal Care">Antenatal Care</option>
+                                <option value="Fertility Care">Fertility Care</option>
+                                <option value="Surgical and Medical Consultation">Surgical and Medical Consultation</option>
+                                <option value="Laboratory Services">Laboratory Services</option>
+                                <option value="Ultrasonography">Ultrasonography</option>
+                                <option value="Medical Counseling">Medical Counseling</option>
+                                <option value="Maternity Care">Maternity Care</option>
+                                <option value="General Health Care">General Health Care</option>
+                                <option value="Ambulance Services">Ambulance Services</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="date">Preferred Date *</label>
+                                <input type="date" id="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="time">Preferred Time *</label>
+                                <input type="time" id="time" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Additional Message (Optional)</label>
+                            <textarea id="message" class="form-control" placeholder="Any specific concerns or requests?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary btn-submit">
+                            Send Enquiry via WhatsApp
+                        </button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; text-align: center;">
+                            Please note: This is an enquiry form. Your appointment is not confirmed until you receive a response from our team. You will be redirected to WhatsApp to send the message.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Contact Us</span>
+                <h2 class="section-title">We Are Here for You.</h2>
+                <p class="section-desc">Reach out to us through any of the channels below. We look forward to hearing from you.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <div class="contact-card-icon">
+                        <svg width="32" height="32"><use href="#icon-map-pin"></use></svg>
+                    </div>
+                    <h3>Our Location</h3>
+                    <p>23, Isale Alfa Community,<br>Osogbo - Ilobu Road, Okinni,<br>Osun State, Nigeria.</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Okinni%2C%20Osogbo%2C%20Osun%20State%2C%20Nigeria" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 5px; margin-top: 10px;">
+                        Get Directions <svg width="14" height="14"><use href="#icon-external-link"></use></svg>
+                    </a>
+                </div>
+
+                <div class="contact-card reveal" style="transition-delay: 0.1s;">
+                    <div class="contact-card-icon">
+                        <svg width="32" height="32"><use href="#icon-phone"></use></svg>
+                    </div>
+                    <h3>Phone & WhatsApp</h3>
+                    <p>Phone: <a href="tel:08027355688">0802 735 5688</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/2348027355688" target="_blank" rel="noopener noreferrer">+234 802 735 5688</a></p>
+                </div>
+
+                <div class="contact-card reveal" style="transition-delay: 0.2s;">
+                    <div class="contact-card-icon">
+                        <svg width="32" height="32"><use href="#icon-mail"></use></svg>
+                    </div>
+                    <h3>Email Address</h3>
+                    <p>Send us an email anytime at:</p>
+                    <a href="mailto:omicarespecialisthosp@gmail.com" style="word-break: break-all;">omicarespecialisthosp@gmail.com</a>
+                </div>
+            </div>
+
+            <!-- Map Placeholder / Link -->
+            <div class="map-container reveal">
+                <div class="map-placeholder">
+                    <svg><use href="#icon-map-pin"></use></svg>
+                    <h3>Find Omicare Hospital</h3>
+                    <p>We are located at 23, Isale Alfa Community, Osogbo - Ilobu Road, Okinni.</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Okinni%2C%20Osogbo%2C%20Osun%20State%2C%20Nigeria" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions.</h2>
+                <p class="section-desc">Find quick answers to common questions about Omicare Multispeciality Hospital.</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item reveal active">
+                    <div class="faq-header">
+                        <h3>Where is Omicare Multispeciality Hospital located?</h3>
+                        <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
+                    </div>
+                    <div class="faq-body">
+                        <div class="faq-content">
+                            We are located at 23, Isale Alfa Community, Osogbo - Ilobu Road, Okinni, Osun State, Nigeria. You can use the Google Maps link in our contact section to find us easily.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" style="transition-delay: 0.1s;">
+                    <div class="faq-header">
+                        <h3>How can I contact the hospital?</h3>
+                        <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
+                    </div>
+                    <div class="faq-body">
+                        <div class="faq-content">
+                            You can reach us by phone at 0802 735 5688, via WhatsApp at +234 802 735 5688, or by email at omicarespecialisthosp@gmail.com.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" style="transition-delay: 0.2s;">
+                    <div class="faq-header">
+                        <h3>What medical services are available?</h3>
+                        <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
+                    </div>
+                    <div class="faq-body">
+                        <div class="faq-content">
+                            We offer a wide range of services including Antenatal Care, Fertility Care, Surgical and Medical Consultation, Laboratory Services, Ultrasonography, Medical Counseling, Maternity Care, General Health Care, and Ambulance Services.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" style="transition-delay: 0.3s;">
+                    <div class="faq-header">
+                        <h3>How can I request an appointment?</h3>
+                        <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
+                    </div>
+                    <div class="faq-body">
+                        <div class="faq-content">
+                            You can use the appointment enquiry form on this website. Simply fill in your details and click "Send Enquiry via WhatsApp" to connect with our team. Alternatively, you can call us directly.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal" style="transition-delay: 0.4s;">
+                    <div class="faq-header">
+                        <h3>Can I contact the hospital through WhatsApp?</h3>
+                        <div class="faq-icon"><svg width="20" height="20"><use href="#icon-chevron-down"></use></svg></div>
+                    </div>
+                    <div class="faq-body">
+                        <div class="faq-content">
+                            Yes, we welcome enquiries via WhatsApp. You can chat with us directly by clicking the floating WhatsApp button or the links provided on this website (+234 802 735 5688).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="container cta-content reveal">
+            <h2>Your Health Matters. Let Us Be Part of Your Journey.</h2>
+            <p>Connect with Omicare Multispeciality Hospital today to make an enquiry or learn more about our healthcare services.</p>
+            <div class="cta-buttons">
+                <a href="#appointment" class="btn btn-primary">Book an Appointment</a>
+                <a href="tel:08027355688" class="btn btn-outline">
+                    <svg width="18" height="18"><use href="#icon-phone"></use></svg>
+                    Call Omicare
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo-container" style="margin-bottom: 20px;">
+                        <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 90 C50 90 10 60 10 35 C10 15 30 10 50 30 C70 10 90 15 90 35 C90 60 50 90 50 90 Z" fill="#FFFFFF" opacity="0.1"/>
+                            <path d="M50 85 C50 85 15 55 15 35 C15 20 30 15 50 35 C70 15 85 20 85 35 C85 55 50 85 50 85 Z" fill="none" stroke="#078B43" stroke-width="6" stroke-linecap="round"/>
+                            <rect x="42" y="30" width="16" height="40" rx="4" fill="#FFFFFF"/>
+                            <rect x="30" y="42" width="40" height="16" rx="4" fill="#078B43"/>
+                        </svg>
+                        <div class="logo-text">
+                            <span class="logo-title">OMICARE</span>
+                            <span class="logo-subtitle" style="color: var(--primary-green);">Multispeciality Hospital</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">Providing accessible, compassionate and patient-centred healthcare to the Okinni, Osogbo community and beyond.</p>
+                    <div class="footer-socials">
+                        <a href="https://wa.me/2348027355688" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+                            <svg width="20" height="20"><use href="#icon-whatsapp"></use></svg>
+                        </a>
+                        <a href="mailto:omicarespecialisthosp@gmail.com" class="social-link" aria-label="Email">
+                            <svg width="20" height="20"><use href="#icon-mail"></use></svg>
+                        </a>
+                        <a href="tel:08027355688" class="social-link" aria-label="Phone">
+                            <svg width="20" height="20"><use href="#icon-phone"></use></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Our Services</a>
+                        <a href="#team">Medical Team</a>
+                        <a href="#appointment">Book Appointment</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <div class="footer-links">
+                        <a href="#services">Maternity Care</a>
+                        <a href="#services">General Health Care</a>
+                        <a href="#services">Ambulance Services</a>
+                        <a href="#services">Antenatal Care</a>
+                        <a href="#services">Fertility Care</a>
+                        <a href="#services">Laboratory Services</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18"><use href="#icon-map-pin"></use></svg>
+                            <span>23, Isale Alfa Community,<br>Osogbo - Ilobu Road, Okinni,<br>Osun State, Nigeria.</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18"><use href="#icon-phone"></use></svg>
+                            <span>0802 735 5688</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="18" height="18"><use href="#icon-mail"></use></svg>
+                            <span>omicarespecialisthosp@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; Omicare Multispeciality Hospital. All Rights Reserved.</p>
+                <p>Designed and Developed by <a href="#" target="_blank" rel="noopener noreferrer">Adeleke Uthman</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING ELEMENTS -->
+    <a href="https://wa.me/2348027355688" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg width="35" height="35"><use href="#icon-whatsapp"></use></svg>
+    </a>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24"><use href="#icon-arrow-up"></use></svg>
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Welcome Modal Logic ---
+            const welcomeModal = document.getElementById('welcomeModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const modalCta = document.getElementById('modalCta');
+
+            // Check if welcome modal has been shown using sessionStorage
+            let hasSeenWelcome = false;
+            try {
+                hasSeenWelcome = sessionStorage.getItem('omicareWelcomeShown');
+            } catch (e) {
+                console.warn('Session storage is blocked. Modal will show every time.');
+            }
+
+            if (!hasSeenWelcome) {
+                setTimeout(() => {
+                    welcomeModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    try {
+                        sessionStorage.setItem('omicareWelcomeShown', 'true');
+                    } catch (e) {}
+                }, 1500); // Show after 1.5 seconds
+            }
+
+            const closeModal = () => {
+                welcomeModal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            closeModalBtn.addEventListener('click', closeModal);
+            
+            // Close modal if user clicks outside the modal content
+            welcomeModal.addEventListener('click', (e) => {
+                if (e.target === welcomeModal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal when CTA is clicked and smooth scroll
+            modalCta.addEventListener('click', () => {
+                closeModal();
+            });
+
+            // --- Navigation & Mobile Menu ---
+            const navbar = document.getElementById('navbar');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            const navItems = document.querySelectorAll('.nav-link');
+
+            // Sticky Navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Back to top button visibility
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 500) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            // Mobile Menu Toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu on link click
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Active Nav Link on Scroll
+            const sections = document.querySelectorAll('section[id]');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Scroll Reveal Animation ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // --- FAQ Accordion ---
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            const syncFaqState = (item) => {
+                const body = item.querySelector('.faq-body');
+                if (!body) return;
+                if (item.classList.contains('active')) {
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                } else {
+                    body.style.maxHeight = null;
+                }
+            };
+
+            faqItems.forEach((item) => {
+                const header = item.querySelector('.faq-header');
+                if (header) {
+                    header.setAttribute('tabindex', '0');
+                    header.addEventListener('click', () => {
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('active')) {
+                                otherItem.classList.remove('active');
+                                syncFaqState(otherItem);
+                            }
+                        });
+
+                        item.classList.toggle('active');
+                        syncFaqState(item);
+                    });
+
+                    header.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            header.click();
+                        }
+                    });
+                }
+                syncFaqState(item);
+            });
+
+            requestAnimationFrame(() => {
+                faqItems.forEach(item => syncFaqState(item));
+            });
+
+            document.querySelectorAll('img').forEach((img) => {
+                if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+                if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+                if (img.closest('.hero-image-wrapper') && !img.hasAttribute('fetchpriority')) {
+                    img.setAttribute('fetchpriority', 'high');
+                }
+            });
+
+            // --- Appointment Form & WhatsApp Integration ---
+            const form = document.getElementById('appointmentForm');
+            const formMessage = document.getElementById('formMessage');
+            const hospitalWhatsApp = '2348027355688';
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Get values
+                const name = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const service = document.getElementById('service').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                const message = document.getElementById('message').value.trim();
+
+                // Basic Validation
+                if (!name || !phone || !service || !date || !time) {
+                    showFormMessage('Please fill in all required fields.', 'error');
+                    return;
+                }
+
+                // Construct WhatsApp Message
+                let waMessage = `*NEW APPOINTMENT ENQUIRY*\n\n`;
+                waMessage += `*Hospital:* Omicare Multispeciality Hospital\n\n`;
+                waMessage += `*Patient Name:* ${name}\n`;
+                waMessage += `*Phone Number:* ${phone}\n`;
+                if (email) waMessage += `*Email:* ${email}\n`;
+                waMessage += `*Requested Service:* ${service}\n`;
+                waMessage += `*Preferred Date:* ${date}\n`;
+                waMessage += `*Preferred Time:* ${time}\n`;
+                if (message) waMessage += `*Additional Message:* ${message}\n`;
+                waMessage += `\n_Please contact the patient regarding this appointment enquiry._`;
+
+                // Encode message
+                const encodedMessage = encodeURIComponent(waMessage);
+                const whatsappUrl = `https://wa.me/${hospitalWhatsApp}?text=${encodedMessage}`;
+
+                // Open WhatsApp
+                const newWindow = window.open(whatsappUrl, '_blank');
+
+                if (newWindow) {
+                    showFormMessage('Redirecting to WhatsApp... Please press SEND in the chat to submit your enquiry.', 'success');
+                    form.reset();
+                } else {
+                    // Fallback if popup is blocked
+                    showFormMessage('Popup blocked. Please click the link below to send your enquiry via WhatsApp.', 'error');
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = whatsappUrl;
+                    fallbackLink.target = '_blank';
+                    fallbackLink.textContent = 'Click here to open WhatsApp';
+                    fallbackLink.style.display = 'block';
+                    fallbackLink.style.marginTop = '10px';
+                    fallbackLink.style.color = '#064B91';
+                    fallbackLink.style.fontWeight = 'bold';
+                    formMessage.appendChild(fallbackLink);
+                }
+            });
+
+            function showFormMessage(msg, type) {
+                formMessage.textContent = msg;
+                formMessage.className = `form-message ${type}`;
+                
+                // Clear message after 8 seconds if it's a success message
+                if (type === 'success') {
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                        formMessage.className = 'form-message';
+                    }, 8000);
+                }
+            }
+
+            // --- Back to Top Button ---
+            const backToTopBtn = document.getElementById('backToTop');
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // --- Smooth Scrolling for all anchor links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
