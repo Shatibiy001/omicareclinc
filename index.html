@@ -1372,6 +1372,88 @@
             color: var(--primary-green);
         }
 
+        .location-map {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            min-height: 430px;
+            overflow: hidden;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .location-map-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 48px;
+            background: linear-gradient(145deg, var(--primary-blue), #043a70);
+            color: var(--white);
+        }
+
+        .location-map-copy .map-eyebrow {
+            color: #BFE7CF;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .location-map-copy h3 {
+            font-size: 1.8rem;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .location-map-copy p {
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 28px;
+        }
+
+        .map-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .map-actions .btn {
+            border: 2px solid transparent;
+        }
+
+        .map-actions .btn-primary {
+            background: var(--primary-green);
+        }
+
+        .map-actions .btn-primary:hover {
+            background: var(--green-hover);
+        }
+
+        .map-actions .btn-outline-light {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+
+        .map-actions .btn-outline-light:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .location-map-frame {
+            min-height: 430px;
+            background: #E8EEF4;
+        }
+
+        .location-map-frame iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 430px;
+            border: 0;
+            display: block;
+        }
+
         /* =========================================
            FAQ SECTION
            ========================================= */
@@ -1744,6 +1826,10 @@
             
             .appointment-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
+            .location-map { grid-template-columns: 1fr; }
+            .location-map-copy { padding: 40px; }
+            .location-map-frame,
+            .location-map-frame iframe { min-height: 360px; }
             
             .nav-links {
                 position: fixed;
@@ -1783,6 +1869,8 @@
             .welcome-modal { padding: 30px 20px; }
             .welcome-modal h2 { font-size: 1.5rem; }
             .founder-list { grid-template-columns: 1fr; }
+            .location-map-copy { padding: 28px 24px; }
+            .location-map-copy h3 { font-size: 1.5rem; }
 
             /* Mobile Logo Fix */
             .logo-svg {
@@ -2483,6 +2571,7 @@
                     </div>
                     <h3>Our Location</h3>
                     <p>23, Isale Alfa Community,<br>Osogbo - Ilobu Road, Okinni,<br>Osun State, Nigeria.</p>
+                    <p><a href="https://maps.app.goo.gl/T9S2i89ot66YW2sa6?g_st=aw" target="_blank" rel="noopener noreferrer">View on Google Maps &rarr;</a></p>
                 </div>
 
                 <div class="contact-card reveal" style="transition-delay: 0.1s;">
@@ -2501,6 +2590,29 @@
                     <h3>Email Address</h3>
                     <p>Send us an email anytime at:</p>
                     <a href="mailto:omicarespecialisthosp@gmail.com" style="word-break: break-all;">omicarespecialisthosp@gmail.com</a>
+                </div>
+            </div>
+
+            <div class="location-map reveal">
+                <div class="location-map-copy">
+                    <span class="map-eyebrow">Find our hospital</span>
+                    <h3>Visit Omicare Multispeciality Hospital</h3>
+                    <p>23, Isale Alfa Community, Osogbo - Ilobu Road, Okinni, Osun State, Nigeria.</p>
+                    <div class="map-actions">
+                        <a class="btn btn-primary" href="https://maps.app.goo.gl/T9S2i89ot66YW2sa6?g_st=aw" target="_blank" rel="noopener noreferrer">
+                            Get Directions
+                        </a>
+                        <a class="btn btn-outline-light" href="tel:08027355688">Call the Hospital</a>
+                    </div>
+                </div>
+                <div class="location-map-frame">
+                    <iframe
+                        src="https://www.google.com/maps?q=6.47168,3.4308096&amp;z=15&amp;output=embed"
+                        title="Omicare Multispeciality Hospital location map"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
 
